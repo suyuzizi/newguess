@@ -3,11 +3,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class NGuessNumber {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static ArrayList<Integer> answers = new ArrayList<>();
+ public static ArrayList<Integer> guesses = new ArrayList<>();
+ public static Scanner scanner = new Scanner(System.in);
+ public static void main(String [] args) {
+
         System.out.println("欢迎来到新猜数字游戏！");
         while(true){
-            ArrayList<Integer> answers = new ArrayList<>();
+
             while(answers.size() < 4) {
                 int answer = (int)(Math.random() * 10);
                 if(!answers.contains(answer)){
@@ -16,7 +19,7 @@ public class NGuessNumber {
             }
             while(true){
                 System.out.println("请输入4个0-9之间不重复的整数:");
-                ArrayList<Integer> guesses = new ArrayList<>();
+                    guesses.clear();
                 while(guesses.size() < 4) {
                     int guess;
                     try{
