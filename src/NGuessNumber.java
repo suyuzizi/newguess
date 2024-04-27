@@ -16,12 +16,7 @@ public class NGuessNumber {
                 System.out.println("请输入4个0-9之间不重复的整数:");
                     guesses.clear();
                guesses = receiveGuesses();
-                int a = 0;
-                for(int i = 0; i < 4; i++){
-                    if(answers.get(i) == guesses.get(i)){
-                        a = a + 1;
-                    }
-                }
+                int a = getA();
 
                 int b = 0;
                 for(int i = 0; i < 4; i++){
@@ -73,6 +68,15 @@ public static ArrayList<Integer> receiveGuesses() {
  }
  }
  return guesses;
+}
+public static int getA() {
+ int a = 0;
+ for(int i = 0; i < 4; i++){
+ if(answers.get(i) == guesses.get(i)){
+ a = a + 1;
+ }
+ }
+ return a;
 }
     }
 }
