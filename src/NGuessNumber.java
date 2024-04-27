@@ -18,12 +18,7 @@ public class NGuessNumber {
                guesses = receiveGuesses();
                 int a = getA();
 
-                int b = 0;
-                for(int i = 0; i < 4; i++){
-                    if(answers.contains(guesses.get(i)) && answers.get(i) != guesses.get(i)){
-                        b = b + 1;
-                    }
-                }
+              int b = getB();
 
                 System.out.println(a+"A"+b+"B");
                 if ( a == 4 && b == 0){
@@ -78,5 +73,16 @@ public static int getA() {
  }
  return a;
 }
+public static int getB(){
+ int b = 0;
+ for(int i = 0; i < 4; i++){
+ if(answers.contains(guesses.get(i)) && answers.get(i) !=
+guesses.get(i)){
+ b = b + 1;
+ }
+ }
+ return b;
+}
+
     }
 }
