@@ -15,26 +15,7 @@ public class NGuessNumber {
             while(true){
                 System.out.println("请输入4个0-9之间不重复的整数:");
                     guesses.clear();
-                while(guesses.size() < 4) {
-                    int guess;
-                    try{
-                        guess = scanner.nextInt();
-                    }catch (InputMismatchException e){
-                        System.out.println("请输入数字！");
-                        scanner.next();
-                        continue;
-                    }
-                    if(guess < 0 || guess > 9){
-                        System.out.println("请输入0-9之间的整数！");
-                        continue;
-                    }
-                    if(!guesses.contains(guess)){
-                        guesses.add(guess);
-                    }else {
-                        System.out.println("数字已经存在！");
-                    }
-                }
-
+               guesses = receiveGuesses();
                 int a = 0;
                 for(int i = 0; i < 4; i++){
                     if(answers.get(i) == guesses.get(i)){
@@ -70,6 +51,28 @@ public class NGuessNumber {
  }
  }
  return answers;
+}
+public static ArrayList<Integer> receiveGuesses() {
+ while(guesses.size() < 4) {
+ int guess;
+ try{
+ guess = scanner.nextInt();
+ }catch (InputMismatchException e){
+ System.out.println("请输⼊数字！");
+ scanner.next();
+ continue;
+ }
+ if(guess < 0 || guess > 9){
+ System.out.println("请输⼊0-9之间的整数！");
+ continue;
+ }
+ if(!guesses.contains(guess)){
+ guesses.add(guess);
+ }else {
+ System.out.println("数字已经存在！");
+ }
+ }
+ return guesses;
 }
     }
 }
